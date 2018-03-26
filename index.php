@@ -22,7 +22,7 @@ use \App\Agent;
 </head>
 <body>
 <?php
-
+echo 'test'
 
 ?>
 <!-- Optional JavaScript -->
