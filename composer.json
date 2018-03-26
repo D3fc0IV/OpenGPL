@@ -1,0 +1,20 @@
+{
+  "name": "OpenGPL/OG",
+  "description": "description_text",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Frédéric DELVAL",
+      "email": "frederic.delval@gmail.com"
+    }
+  ],
+  "autoload":{
+    "psr-4" : {"App\\" : "App"}
+  },
+  "require": {
+    "twbs/bootstrap": "v4.0.0",
+    "components/font-awesome": "5.0.6",
+    "phpoffice/phpspreadsheet": "1.2.0"
+  }
+}
