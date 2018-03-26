@@ -1,5 +1,9 @@
 composer.phar
 composer.lock
 .idea/
-/vendor/
-/.gitignore
+/vendor/components/
+/vendor/phpoffice/
+/vendor/twbs/
+
+
+
