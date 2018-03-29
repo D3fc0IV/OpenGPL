@@ -25,12 +25,16 @@ class Autoloader{
      * @param $class_name string
      */
     static function autoload($class_name){
-        //var_dump($class_name);
+        $temp = explode('\\', $class_name);
+        $temp  = array_map('strtolower', $temp);
+        $class_name = ucfirst(end($temp));
+
+
         if(strpos($class_name,__NAMESPACE__.'\\') == 0) {
             $class_name = str_replace(__NAMESPACE__.'\\', '', $class_name);
             $class_name = str_replace('\\', '/', $class_name);
-            var_dump( __DIR__ . '/' . $class_name . '.php');
-            require __DIR__ . '/' . $class_name . '.php';
+            var_dump( __DIR__ . '\\' . $class_name . '.php');
+            require __DIR__ . '\\' . $class_name . '.php';
         }
     }
 }

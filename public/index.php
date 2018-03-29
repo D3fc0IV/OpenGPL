@@ -15,8 +15,8 @@ var_dump($user->get('`id` = 1'));
 */
 
 $user = new User();
-$t = new \App\Core\DBAuth($user);
-var_dump($t->login('frederic','test'));
+//$t = new \App\Core\DBAuth($user);
+//var_dump($t->login('frederic','test'));
 
 ob_start();
 
