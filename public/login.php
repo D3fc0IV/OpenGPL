@@ -15,8 +15,8 @@ require "vendor/autoload.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/plugins/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
     <style type="text/css">
         html,
         body {

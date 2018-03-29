@@ -1,15 +1,18 @@
 <?php
 namespace App\Core;
 
+use \PDO;
+
 class Database{
 	protected $db;
-
+    public $tablename;
 	/**
 	 * Database::__construct()
 	 * @param mixed $tablename
 	 */
-	function __construct(){
+	function __construct($tablename = null){
 		$this->db = DBConnexion::getInstance();
+		$this->tablename = $tablename;
 	}
 	
 	/**
@@ -48,10 +51,8 @@ class Database{
             return $this->db->lastInsertId();
 
         }
-        catch (PDOException$e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog($e);
-            $pe->stop();
+        catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 
@@ -89,11 +90,8 @@ class Database{
 			$sql .= ($dest != '' && count($dest) >= 1) ? ' WHERE '.implode(' ', $dest) : '';
 			//echo $sql;
 			$this->db->exec($sql);
-        }
-        catch (PDOException $e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog($e);
-            $pe->stop();
+        }catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 	
@@ -140,11 +138,8 @@ class Database{
 			$sql .= ($dest != '' && count($dest) >= 1) ? ' WHERE '.implode(' ', $dest) : '';
 			//echo $sql;
 			return $this->db->exec($sql);
-        }
-        catch (PDOException $e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog($e);
-            $pe->stop();
+        }catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 
@@ -164,11 +159,8 @@ class Database{
 		}
 		try {
 			return $this->db->exec('DELETE FROM `'.$this->tablename.'` '.$conditions);
-        }
-        catch (PDOException$e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog($e);
-            $pe->stop();
+        }catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 	
@@ -191,11 +183,8 @@ class Database{
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_OBJ);
             $stmt = null;
-        }
-        catch (PDOException $e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog($e);
-            $pe->stop();
+        }catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 	
@@ -223,11 +212,8 @@ class Database{
             $result = $stmt->fetchAll(PDO::FETCH_OBJ);
             $stmt = null;
             return $result;
-        }
-        catch (PDOException$e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog($e);
-            $pe->stop();
+        }catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 	
@@ -281,11 +267,8 @@ class Database{
             $result = $stmt->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_ASSOC);
             $stmt = null;
             return $result;
-        }
-        catch (PDOException$e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog();
-            $pe->stop();
+        }catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 
@@ -309,11 +292,8 @@ class Database{
             $result = $stmt->fetch(PDO::FETCH_OBJ);
             $stmt = null;
             return $result->number;
-        }
-        catch (PDOException$e) {
-            $pe = new PException($e->getMessage());
-            $pe->addLog($e);
-            $pe->stop();
+        }catch (PDOException $e) {
+            $e->getMessage();
         }
 	}
 }

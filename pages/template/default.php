@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Template</title>
+        <title><?=$app->title?></title>
         <!-- Bootstrap core CSS -->
         <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
@@ -89,6 +89,7 @@
         <!-- Begin page content -->
         <main role="main" class="container">
           <h1 class="mt-5">Content</h1>
+            <?=$content?>
         </main>
 
         <footer class="footer">
