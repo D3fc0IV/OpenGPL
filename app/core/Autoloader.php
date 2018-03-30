@@ -25,7 +25,7 @@ class Autoloader{
      * @param $namespace string
      */
     static function autoload($namespace){
-        var_dump($namespace);
+
         $namespace = strtolower($namespace . '.php');
         $temp = explode('\\', $namespace);
         $temp  = array_map('strtolower', $temp);
@@ -35,6 +35,10 @@ class Autoloader{
         $classname = ucfirst($classname);
 
         if(strpos($namespace,__NAMESPACE__.'\\') == 0) {
+            var_dump($namespace);
+            var_dump('N : '.__NAMESPACE__);
+            var_dump($namespace.$classname);
+
             $namespace = str_replace(__NAMESPACE__ . '\\', '', $namespace);
             require ROOT . '\\' . $namespace . $classname;
         }
