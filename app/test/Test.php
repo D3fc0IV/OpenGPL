@@ -9,7 +9,7 @@
 namespace App\Test;
 
 
-class test{
+class Test{
 
     function __construct(){
         echo 'test';

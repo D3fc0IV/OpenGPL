@@ -6,7 +6,9 @@ App\Core\Autoloader::register();
 
 use App\Core\App;
 use App\Core\Database;
-use \App\Table\User;
+use App\Table\User;
+
+
 $app = App::getInstance();
 
 /*
@@ -18,6 +20,7 @@ $user = new User();
 //$t = new \App\Core\DBAuth($user);
 //var_dump($t->login('frederic','test'));
 
+$test = new App\Test\Test();
 
 ob_start();
 

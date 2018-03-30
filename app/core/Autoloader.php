@@ -25,6 +25,7 @@ class Autoloader{
      * @param $namespace string
      */
     static function autoload($namespace){
+        var_dump($namespace);
         $namespace = strtolower($namespace . '.php');
         $temp = explode('\\', $namespace);
         $temp  = array_map('strtolower', $temp);
