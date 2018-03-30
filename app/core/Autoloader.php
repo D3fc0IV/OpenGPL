@@ -22,19 +22,20 @@ class Autoloader{
 
     /**
      * Inclusion du fichier correspondant à la classe
-     * @param $class_name string
+     * @param $namespace string
      */
-    static function autoload($class_name){
-        $temp = explode('\\', $class_name);
+    static function autoload($namespace){
+        $namespace = strtolower($namespace . '.php');
+        $temp = explode('\\', $namespace);
         $temp  = array_map('strtolower', $temp);
-        $class_name = ucfirst(end($temp));
 
+        $classname = end($temp);
+        $namespace = str_replace($classname, '', $namespace);
+        $classname = ucfirst($classname);
 
-        if(strpos($class_name,__NAMESPACE__.'\\') == 0) {
-            $class_name = str_replace(__NAMESPACE__.'\\', '', $class_name);
-            $class_name = str_replace('\\', '/', $class_name);
-            var_dump( __DIR__ . '\\' . $class_name . '.php');
-            require __DIR__ . '\\' . $class_name . '.php';
+        if(strpos($namespace,__NAMESPACE__.'\\') == 0) {
+            $namespace = str_replace(__NAMESPACE__ . '\\', '', $namespace);
+            require ROOT . '\\' . $namespace . $classname;
         }
     }
 }

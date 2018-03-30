@@ -18,6 +18,7 @@ $user = new User();
 //$t = new \App\Core\DBAuth($user);
 //var_dump($t->login('frederic','test'));
 
+
 ob_start();
 
 $content = ob_get_clean();
